@@ -1,43 +1,115 @@
 #include <iostream>
 #include <string>
-
+#include <fstream>
 
 using namespace std;
-
-//divide by 1000
-//divide by 500
-//divide by 100
-//divide by 50
-//divide by 10
-//divide by 5
-// 1, 2, 3
 
 void arabicToRoman(int arab);
 int romanToArabic(string roman);
 
-int main(){
-	/*
-	for(int i = 1; i < 4000; ++i ){
-		//cout << i << " : ";
-		arabicToRoman(i);
 
-	}
-	*/
-	cout << romanToArabic("III");
-	cout << endl;
-	cout << romanToArabic("V");
-	cout << endl;
+int main(){
+
+
+
+			int i = 1;
+
+			ifstream infile("output4000.txt");
+			if (infile.is_open()){
+				string line = "";
+
+				while(getline(infile, line)){
+					cout << line <<" : ";
+					cout << romanToArabic(line);
+					cout << endl;
+					if(i >= 3999){
+						break;
+
+					}
+
+					if(romanToArabic(line) != i) {
+						cout << "BROKE!" << endl;
+						break;
+					}
+					++i;
+
+
+				}
+				infile.close();
+				//return 1;
+
+
+			}
+
+		if (i == 1){
+			for(int i = 1; i < 4000; ++i ){
+						//cout << i << " : ";
+				arabicToRoman(i);
+			}
+
+
+		}	
+
+
+
+
+
+
+
+
 
 	return 0;
 }
-
 int romanToArabic(string roman){
 	int arab = 0;
 	int nexti = 0;
 	
 	for(int i = 0; i < roman.length(); ++i){
+		if(i == roman.length() - 1)
+			nexti = i;
+		else	
 			nexti = i + 1;
-		if (roman[i] == 'V') {
+
+		if(roman[i] == 'C' &&  roman[nexti] == 'M' ) {
+			arab += 900; ++i;
+
+		}
+		else if (roman[i] == 'M') {
+			arab += 1000;
+		}
+		if(roman[i] == 'C' &&  roman[nexti] == 'D' ) {
+			arab += 400; ++i;
+
+		}
+		else if (roman[i] == 'D') {
+			arab += 500;
+		}
+		if(roman[i] == 'X' &&  roman[nexti] == 'C' ) {
+			arab += 90; ++i;
+
+		}
+		else if (roman[i] == 'C') {
+			arab += 100;
+		}
+		if(roman[i] == 'X' &&  roman[nexti] == 'L' ) {
+			arab += 40; ++i;
+
+		}
+		else if (roman[i] == 'L') {
+			arab += 50;
+		}
+		if(roman[i] == 'I' &&  roman[nexti] == 'X' ) {
+			arab += 9; ++i;
+
+		}
+		else if (roman[i] == 'X') {
+			arab += 10;
+		}
+		if(roman[i] == 'I' &&  roman[nexti] == 'V' ) {
+			arab += 4; ++i;
+
+		}
+		else if (roman[i] == 'V') {
 			arab += 5;
 		}else if(roman[i] == 'I'){
 			arab += 1;
@@ -48,7 +120,6 @@ int romanToArabic(string roman){
 
 	return arab;
 }
-
 
 void arabicToRoman(int arab){
 
