@@ -4,18 +4,41 @@
 
 using namespace std;
 
+//divide by 1000
+//divid by 500
+//divide by 100
+//divide by 50
+//divide by 10
+//divide by 5
+// 1, 2, 3
+
 void arabicToRoman(int arab);
 
 int main(){
 
-	arabicToRoman(3);
-	arabicToRoman(2);
-	arabicToRoman(1);
+	arabicToRoman(900);
+	arabicToRoman(1000);
+	//arabicToRoman(1);
 
 	return 0;
 }
 
 void arabicToRoman(int arab){
+	
+	if (arab >= 900){
+		if (arab >= 1000){
+				cout << "M";
+				arab -= 1000;
+				
+		}
+			else{
+				cout << "CM"; arab -= 900;
+			}
+
+
+	}
+
+	/*
 	if(arab < 1){
 		cout << "Undefeined in Roman Numerals" << endl;
 	}
@@ -36,5 +59,6 @@ void arabicToRoman(int arab){
 
 		cout << "V";
 	}
+	*/
 	cout << endl;
 }
