@@ -13,17 +13,42 @@ using namespace std;
 // 1, 2, 3
 
 void arabicToRoman(int arab);
+int romanToArabic(string roman);
 
 int main(){
-
+	/*
 	for(int i = 1; i < 4000; ++i ){
 		//cout << i << " : ";
 		arabicToRoman(i);
 
 	}
+	*/
+	cout << romanToArabic("III");
+	cout << endl;
+	cout << romanToArabic("V");
+	cout << endl;
 
 	return 0;
 }
+
+int romanToArabic(string roman){
+	int arab = 0;
+	int nexti = 0;
+	
+	for(int i = 0; i < roman.length(); ++i){
+			nexti = i + 1;
+		if (roman[i] == 'V') {
+			arab += 5;
+		}else if(roman[i] == 'I'){
+			arab += 1;
+		}
+
+
+	}
+
+	return arab;
+}
+
 
 void arabicToRoman(int arab){
 
