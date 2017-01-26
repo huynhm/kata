@@ -16,36 +16,31 @@ void arabicToRoman(int arab);
 
 int main(){
 
-	arabicToRoman(900);
-	arabicToRoman(1000);
-	arabicToRoman(400);
-	arabicToRoman(500);
-	arabicToRoman(90);
-	arabicToRoman(100);
-	arabicToRoman(40);
-	arabicToRoman(50);
-	arabicToRoman(9);
-	arabicToRoman(10);
-	arabicToRoman(4);
-	arabicToRoman(5);
-	arabicToRoman(2);
+	for(int i = 1; i < 4000; ++i ){
+		//cout << i << " : ";
+		arabicToRoman(i);
+
+	}
 
 	return 0;
 }
 
 void arabicToRoman(int arab){
-	
-	if (arab >= 900){
-		if (arab >= 1000){
+
+
+	while(arab > 0){
+		if (arab >= 900){
+			if (arab >= 1000){
 				cout << "M";
 				arab -= 1000;
-		}
+				
+			}
 			else{
 				cout << "CM"; arab -= 900;
-		}
+			}
 
 
-	}else if (arab >= 400){
+		}else if (arab >= 400){
 			if (arab >= 500){
 				cout << "D"; arab -= 500;
 
@@ -100,5 +95,9 @@ void arabicToRoman(int arab){
 			cout << "ERROR";
 		}
 
+	}
+
+
 	cout << endl;
+
 }
