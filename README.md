@@ -6,7 +6,7 @@
 
 ### B. Convert from Roman to Arabic
 
-* Remove any and all current text files with 
+* Remove any and all current text files (including the 2 output files)  with 
 
 `rm *.txt`
 
