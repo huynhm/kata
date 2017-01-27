@@ -258,7 +258,7 @@ void checkBadFormat(string roman){
 		}
 
 		if( vCount > 1 || lCount > 1 || dCount > 1){
-			cout << "ERROR: ONLY 1 instance of "<< roman[j] << ". You have " << iCount << " at j " << j << endl;
+			cout << "ERROR: ONLY 1 instance of "<< roman[j] << endl;
 
 			return;
 
