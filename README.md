@@ -17,7 +17,8 @@
 
 * alternatively use Makefile 
 
-`make`
+`make clean`
+'make'
 
 
 * Create 3999 Roman Numerals and pipe output to file 

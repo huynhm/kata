@@ -1,6 +1,6 @@
 
 CC = g++
-CFLAGS  = -g -Wall
+CFLAGS  = -Wall -pedantic 
 
 
 # build executable printroman from arabicroman.cpp
