@@ -11,8 +11,6 @@ void checkBadFormat(string roman);
 
 int main(){
 
-
-
 			int i = 1;
 
 			ifstream infile("output4000.txt");
@@ -37,7 +35,35 @@ int main(){
 
 
 				}
+
 				infile.close();
+				if(i >= 3999){
+					cout << "----TESTING for BAD FORMAT. These SHOULD produce errors-------" << endl;
+					cout << "VV" << " : ";
+					cout << romanToArabic("VV");
+					cout << endl;
+					cout << "MMMM" << " : ";
+					cout << romanToArabic("MMMM");
+					cout << endl;
+					cout << "XXL" << " : ";
+					cout << romanToArabic("XXL");
+					cout << endl;
+					cout << "CCM" << " : ";
+					cout << romanToArabic("CCM");
+					cout << endl;
+					cout << "VL" << " : ";
+					cout << romanToArabic("VL");
+					cout << endl;
+					cout << "ID" << " : ";
+					cout << romanToArabic("ID");
+					cout << endl;
+					cout << "VX" << " : ";
+					cout << romanToArabic("VX");
+					cout << endl;
+					cout << "DM" << " : ";
+					cout << romanToArabic("DM");
+					cout << endl;
+				}
 
 
 			}
@@ -49,14 +75,7 @@ int main(){
 			}
 
 
-		}	
-
-
-
-
-
-
-
+		}
 
 
 	return 0;
@@ -235,14 +254,67 @@ void checkBadFormat(string roman){
 		if( vCount > 1 || lCount > 1 || dCount > 1){
 			cout << "ERROR: ONLY 1 instance of "<< roman[j] << ". You have " << iCount << " at j " << j << endl;
 
-			exit(1);
+			return;
+
+		}
+		int prev1 = j - 1;
+		int prev2 = j - 2;
+		int prev3 = j - 3;
+
+		if(roman[j] == roman[prev1] && roman[prev1] == roman[prev2] && 
+			roman[prev2] == roman[prev3] && roman[prev3] == roman[j]){
+			cout << "ERROR: ONLY MAX 3 in ROW of " << roman[j] << endl;
+			return;
+
+		}
+		if(  (roman[prev1] == 'I' && roman[prev2] == 'I' && roman[j] == 'V' ) ||
+			(roman[prev1] == 'I' && roman[prev2] == 'I' && roman[j] == 'X' ) ||
+			(roman[prev1] == 'X' && roman[prev2] == 'X' && roman[j] == 'L' ) ||
+			(roman[prev1] == 'X' && roman[prev2] == 'X' && roman[j] == 'C' ) ||
+			(roman[prev1] == 'C' && roman[prev2] == 'C' && roman[j] == 'D' ) ||
+			(roman[prev1] == 'C' && roman[prev2] == 'C' && roman[j] == 'M' )
+
+		)
+		{
+			cout << "ERROR: ONLY 1 MAX SUBTRACT of " << roman[prev2] << " on " << roman[j] << endl;
+			return;
+		}
+
+		if(roman.length() > 1){
+			if(
+				((roman[prev1] == 'V' || roman[prev2] == 'V' || roman[prev3] == 'V') && roman[j] == 'X' ) ||
+
+				((roman[prev1] == 'V' || roman[prev2] == 'V' || roman[prev3] == 'V') && roman[j] == 'L' ) ||
+				((roman[prev1] == 'I' || roman[prev2] == 'I' || roman[prev3] == 'I') && roman[j] == 'L' ) ||
+
+				((roman[prev1] == 'L' || roman[prev2] == 'L' || roman[prev3] == 'L') && roman[j] == 'C' ) ||
+				((roman[prev1] == 'V' || roman[prev2] == 'V' || roman[prev3] == 'V') && roman[j] == 'C' ) ||
+				((roman[prev1] == 'I' || roman[prev2] == 'I' || roman[prev3] == 'I') && roman[j] == 'C' ) ||
+
+
+				((roman[prev1] == 'L' || roman[prev2] == 'L' || roman[prev3] == 'L') && roman[j] == 'D' ) ||
+				((roman[prev1] == 'X' || roman[prev2] == 'X' || roman[prev3] == 'X') && roman[j] == 'D' ) ||
+				((roman[prev1] == 'V' || roman[prev2] == 'V' || roman[prev3] == 'V') && roman[j] == 'D' ) ||
+				((roman[prev1] == 'I' || roman[prev2] == 'I' || roman[prev3] == 'I') && roman[j] == 'D' ) ||
+
+				((roman[prev1] == 'L' || roman[prev2] == 'L' || roman[prev3] == 'L') && roman[j] == 'M' ) ||
+				((roman[prev1] == 'D' || roman[prev2] == 'D' || roman[prev3] == 'D') && roman[j] == 'M' ) ||
+				((roman[prev1] == 'X' || roman[prev2] == 'X' || roman[prev3] == 'X') && roman[j] == 'M' ) ||
+				((roman[prev1] == 'V' || roman[prev2] == 'V' || roman[prev3] == 'V') && roman[j] == 'M' ) ||
+				((roman[prev1] == 'I' || roman[prev2] == 'I' || roman[prev3] == 'I') && roman[j] == 'M' )
+			)
+			{
+				cout << "ERROR: INVALID ORDER " << endl;
+				return;
+
+			}
 
 		}
 
 		if( iCount > 3 || xCount > 4 || cCount > 4 || mCount > 4 ){
 
-			cout << "ERROR: ONLY MAX 3 instances of "<< roman[j] << ". You have " << iCount << " at j " << j << endl;
-			exit(1);
+			cout << "ERROR: ONLY MAX 4 instances of "<< roman[j] << ". You have " << iCount << " at j " << j << endl;
+			return;
 		}
 
 	}
