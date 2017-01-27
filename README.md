@@ -1,6 +1,6 @@
 # kata
 
-## Roman Numberals
+## Roman Numerals
 
 ### A. Convert from Arabic to Roman
 
