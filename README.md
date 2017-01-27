@@ -19,9 +19,11 @@
 
 `./printroman > output4000.txt`
 
-* Create arabic numbers from previous outputfile's Roman Numerals, 3rd column ensures convertedArabic is same as counter variable i
+* Create arabic numbers from previous outputfile's Roman Numerals, 3rd column ensures convertedArabic is same as counter variable i. Last does testing with purposely badly formated Roman Numerals which Should produce error messages
 
 `./printroman > reverseoutput4000.txt`
+
+* Open the output text files with vi or sublime. 
 
 
 

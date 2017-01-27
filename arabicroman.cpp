@@ -12,7 +12,7 @@ void checkBadFormat(string roman);
 int main(){
 
 			int i = 1;
-
+			//open file if not created yet
 			ifstream infile("output4000.txt");
 			if (infile.is_open()){
 				string line = "";
@@ -38,12 +38,15 @@ int main(){
 
 				infile.close();
 				if(i >= 3999){
-					cout << "----TESTING for BAD FORMAT. These SHOULD produce errors-------" << endl;
+					cout << endl << "----TESTING for BAD FORMAT. These SHOULD produce errors-------" << endl;
 					cout << "VV" << " : ";
 					cout << romanToArabic("VV");
 					cout << endl;
 					cout << "MMMM" << " : ";
 					cout << romanToArabic("MMMM");
+					cout << endl;
+					cout << "CCCXC" << " : ";
+					cout << romanToArabic("CCCXC");
 					cout << endl;
 					cout << "XXL" << " : ";
 					cout << romanToArabic("XXL");
@@ -67,7 +70,7 @@ int main(){
 
 
 			}
-
+		// Creating Roman Numerals with 1-3999
 		if (i == 1){
 			for(int j = 1; j < 4000; ++j ){
 						//cout << i << " : ";
@@ -147,7 +150,7 @@ int romanToArabic(string roman){
 
 void arabicToRoman(int arab){
 
-
+	//Start out with Number, print partial value and then subtract values. Repeat until full value is generated
 	while(arab > 0){
 		if (arab >= 900){
 			if (arab >= 1000){
@@ -225,6 +228,9 @@ void arabicToRoman(int arab){
 void checkBadFormat(string roman){
 	int vCount = 0; int lCount = 0; int dCount = 0;
 	int iCount = 0; int xCount = 0; int cCount = 0; int mCount = 0; 
+
+	// CAN"T have multiple D, V, L
+	//I,X,C,M can only appear 3 times in a row and 4 times total
 	for(int j = 0; j< roman.length(); j++){
 
 		if (roman[j] ==  'V'){
@@ -313,12 +319,10 @@ void checkBadFormat(string roman){
 
 		if( iCount > 3 || xCount > 4 || cCount > 4 || mCount > 4 ){
 
-			cout << "ERROR: ONLY MAX 4 instances of "<< roman[j] << ". You have " << iCount << " at j " << j << endl;
+			cout << "ERROR: ONLY MAX 4 instances of "<< roman[j] << endl;
 			return;
 		}
 
 	}
-	vCount = 0; lCount = 0; dCount = 0;
-	iCount = 0; xCount = 0; cCount = 0; mCount = 0; 
 
 }
