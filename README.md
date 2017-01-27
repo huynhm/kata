@@ -15,11 +15,11 @@
 `g++ arabicroman.cpp -o printroman`
 
 
-* Create 3999 Roman Numerals and pipe output to file
+* Create 3999 Roman Numerals and pipe output to file 
 
 `./printroman > output4000.txt`
 
-* Create arabic numbers from previous outputfile's Roman Numerals, 3rd column ensures convertedArabic is same as counter variable i. Last does testing with purposely badly formated Roman Numerals which Should produce error messages
+* Create arabic numbers from previous outputfile's Roman Numerals, 3rd column ensures convertedArabic is same as counter variable i. Last several rows do testing with purposely badly formated Roman Numerals which Should produce error messages
 
 `./printroman > reverseoutput4000.txt`
 
