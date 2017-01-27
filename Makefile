@@ -17,4 +17,4 @@ all:
 # files and *~ backup files:
 #
 clean: 
-	rm -f printroman
+	rm -f printroman *.txt
