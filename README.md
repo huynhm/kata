@@ -19,7 +19,7 @@
 
 `./printroman > output4000.txt`
 
-* Create arabic numbers from previous outputfile's Roman Numerals, 3rd ensures convertedArabic is same as counter variable 
+* Create arabic numbers from previous outputfile's Roman Numerals, 3rd column ensures convertedArabic is same as counter variable i
 
 `./printroman > reverseoutput4000.txt`
 
