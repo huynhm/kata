@@ -2,26 +2,26 @@
 
 ## Roman Numberals
 
-### 1. Convert from Arabic to Roman
+### A. Convert from Arabic to Roman
 
-### 2. Convert from Roman to Arabic
+### B. Convert from Roman to Arabic
 
-Remove all current text files with 
+1. Remove any and all current text files with 
 
-'rm *.txt'
+`rm *.txt`
 
-Build:
+2. Build:
 
-'g++ arabicroman.cpp -o printroman'
+`g++ arabicroman.cpp -o printroman`
 
 
-Create 3999 Roman Numerals and pipe output to file
+3. Create 3999 Roman Numerals and pipe output to file
 
-'./printroman > output4000.txt'
+`./printroman > output4000.txt`
 
-Create arabic numbers from previous outputfile's Roman Numerals, 3rd ensures convertedArabic is same as counter variable 
+4. Create arabic numbers from previous outputfile's Roman Numerals, 3rd ensures convertedArabic is same as counter variable 
 
-'./printroman > reverseoutput4000.txt'
+`./printroman > reverseoutput4000.txt`
 
 
 
