@@ -6,6 +6,7 @@ using namespace std;
 
 void arabicToRoman(int arab);
 int romanToArabic(string roman);
+void checkBadFormat(string roman);
 
 
 int main(){
@@ -21,14 +22,15 @@ int main(){
 				while(getline(infile, line)){
 					cout << line <<" : ";
 					cout << romanToArabic(line);
+					cout << " :  i" << i;
 					cout << endl;
 					if(i >= 3999){
 						break;
 
 					}
-
+					//Check if convertedLine is equal to counter
 					if(romanToArabic(line) != i) {
-						cout << "BROKE!" << endl;
+						cout << "ERROR: ArabicConversion NOT EQUAL to counter" << endl;
 						break;
 					}
 					++i;
@@ -36,15 +38,14 @@ int main(){
 
 				}
 				infile.close();
-				//return 1;
 
 
 			}
 
 		if (i == 1){
-			for(int i = 1; i < 4000; ++i ){
+			for(int j = 1; j < 4000; ++j ){
 						//cout << i << " : ";
-				arabicToRoman(i);
+				arabicToRoman(j);
 			}
 
 
@@ -63,7 +64,11 @@ int main(){
 int romanToArabic(string roman){
 	int arab = 0;
 	int nexti = 0;
-	
+
+	//check for Bad Format
+	checkBadFormat(roman);
+
+
 	for(int i = 0; i < roman.length(); ++i){
 		if(i == roman.length() - 1)
 			nexti = i;
@@ -195,5 +200,53 @@ void arabicToRoman(int arab){
 
 
 	cout << endl;
+
+}
+
+void checkBadFormat(string roman){
+	int vCount = 0; int lCount = 0; int dCount = 0;
+	int iCount = 0; int xCount = 0; int cCount = 0; int mCount = 0; 
+	for(int j = 0; j< roman.length(); j++){
+
+		if (roman[j] ==  'V'){
+
+			++vCount;
+
+		}else if (roman[j] == 'L'){
+			++lCount;
+
+		}else if(roman[j] == 'D') {
+			++dCount;
+
+
+		}else if (roman[j] == 'I'){
+			++iCount;	
+
+		}else if( roman[j] == 'X'){
+			++xCount;
+
+		}else if (roman[j] == 'C'){
+			++cCount;
+		}else if (roman[j] == 'M') {
+
+			++mCount;
+		}
+
+		if( vCount > 1 || lCount > 1 || dCount > 1){
+			cout << "ERROR: ONLY 1 instance of "<< roman[j] << ". You have " << iCount << " at j " << j << endl;
+
+			exit(1);
+
+		}
+
+		if( iCount > 3 || xCount > 4 || cCount > 4 || mCount > 4 ){
+
+			cout << "ERROR: ONLY MAX 3 instances of "<< roman[j] << ". You have " << iCount << " at j " << j << endl;
+			exit(1);
+		}
+
+	}
+	vCount = 0; lCount = 0; dCount = 0;
+	iCount = 0; xCount = 0; cCount = 0; mCount = 0; 
 
 }
