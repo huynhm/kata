@@ -45,8 +45,8 @@ int main(){
 					cout << "MMMM" << " : ";
 					cout << romanToArabic("MMMM");
 					cout << endl;
-					cout << "CCCXC" << " : ";
-					cout << romanToArabic("CCCXC");
+					cout << "CCCXCC" << " : ";
+					cout << romanToArabic("CCCXCC");
 					cout << endl;
 					cout << "XXL" << " : ";
 					cout << romanToArabic("XXL");
