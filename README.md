@@ -15,6 +15,10 @@
 
 `g++ arabicroman.cpp -o printroman`
 
+* alternatively use Makefile 
+
+`make`
+
 
 * Create 3999 Roman Numerals and pipe output to file 
 
